@@ -1,0 +1,97 @@
+ScreenManager:
+    Register:
+    Login:
+    Home:
+
+<Login>:
+    name:"login"
+    FloatLayout:
+        MDLabel:
+            pos_hint: {"center_x": .5, "center_y": .9}
+            text: "Login"
+            halign: "center"
+        MDTextField:
+            id: email_or_phone
+            hint_text: "Email ou telefone"
+            size_hint_x: None
+            width: "400dp"
+            text: '61998636231'
+            pos_hint: {"center_x": .5, "center_y": .8}
+        MDTextField:
+            id: pwd
+            hint_text: "senha"
+            size_hint_x: None
+            width: "400dp"
+            pos_hint: {"center_x": .5, "center_y": .7}
+        MDRaisedButton:
+            text:"Entrar"
+            pos_hint: {"center_x": .4, "center_y": .6}
+            on_release:
+                root.login()
+        MDTextButton:
+            text:"Cadastre-se"
+            pos_hint: {"center_x": .6, "center_y": .6}
+            on_release:
+                app.root.current = "register"
+
+<Register>:
+    name:"register"
+    FloatLayout:
+        MDLabel:
+            pos_hint: {"center_x": .5, "center_y": .9}
+            text: "Cadastre-se"
+            halign: "center"
+
+        MDTextField:
+            id: name
+            hint_text: "Nome"
+            size_hint_x: None
+            width: "400dp"
+            pos_hint: {"center_x": .5, "center_y": .8}
+        MDTextField:
+            id: email
+            size_hint_x: None
+            width: "400dp"
+            hint_text: "E-mail"
+            pos_hint: {"center_x": .5, "center_y": .7}
+        MDTextField:
+            id: phone
+            size_hint_x: None
+            width: "400dp"
+            hint_text: "Telefone"
+            pos_hint: {"center_x": .5, "center_y": .6}
+        MDTextField:
+            id: pwd
+            size_hint_x: None
+            width: "400dp"
+            hint_text: "Senha"
+            pos_hint: {"center_x": .5, "center_y": .5}
+        MDTextField:
+            id: pwd
+            size_hint_x: None
+            width: "400dp"
+            hint_text: "Confirme a senha"
+            pos_hint: {"center_x": .5, "center_y": .4}
+        MDRaisedButton:
+            text:"Salvar"
+            pos_hint: {"center_x": .4, "center_y": .3}
+            on_release:
+                root.save()
+        MDTextButton:
+            text:"Entrar"
+            pos_hint: {"center_x": .6, "center_y": .3}
+            on_release:
+                app.root.current = "login"
+<Home>:
+    name:"home"
+    FloatLayout:
+        MDLabel:
+            id: user
+            pos_hint: {"center_x": .5, "center_y": .9}
+            text: "Seja bem vindo!"
+            halign: "center"
+        MDRaisedButton:
+            text:"Mostrar mensagem"
+            pos_hint: {"center_x": .6, "center_y": .3}
+            on_release:
+                root.current = "mostrarNomeUsuarioLogado"
